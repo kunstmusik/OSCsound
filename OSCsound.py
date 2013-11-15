@@ -1,3 +1,11 @@
+# OSCsound - Version 0.1
+# Author: Steven Yi
+#
+# Script for rapid live Csound application development with OSC
+# 
+# Licensed under LGPL. Please view LICENSE for more information.
+#
+
 from csnd6 import Csound, CsoundPerformanceThread, csoundInitialize
 from OSC import OSCServer
 from time import sleep

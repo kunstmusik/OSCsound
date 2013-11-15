@@ -19,6 +19,31 @@ The workflow for using this script is:
 
 Also included with this project is an ipython notebook (OSCMessageTest.ipynb).  This notebook includes test scripts for sending score, cc, and quit messages. 
 
+## Running
+
+To run the script, you can use:
+
+    python OSCsound.py path_to_csd_file.csd
+
+You can also optionally give what port the OSC Server should run on using the --port commandline flag. The default port is 7110. 
+
+You can always get more information by using:
+
+    python OSCsound.py -h
+
+which will display information such as:
+
+    usage: OSCsound [-h] [-p PORT] csd_file
+
+    OSCsound - version 0.1
+
+    positional arguments:
+      csd_file              Csound CSD File to run
+
+    optional arguments:
+      -h, --help            show this help message and exit
+      -p PORT, --port PORT  Server Port, defaults to 7110
+
 ## License
 
 This project is released under the LGPL v2.1 license.  Plese view the LICENSE file for more information. 
