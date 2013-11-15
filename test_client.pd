@@ -1,0 +1,18 @@
+#N canvas 207 22 758 555 10;
+#X obj 254 464 sendOSC;
+#X msg 14 314 connect localhost 7110;
+#X obj 127 69 vsl 15 128 40 4000 0 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 1300 1;
+#X obj 279 46 vsl 15 128 1 99 0 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 5000 1;
+#X obj 273 186 * 0.01;
+#X obj 13 285 loadbang;
+#X msg 126 214 send /cc/cutoff \$1;
+#X msg 275 215 send /cc/resonance \$1;
+#X connect 1 0 0 0;
+#X connect 2 0 6 0;
+#X connect 3 0 4 0;
+#X connect 4 0 7 0;
+#X connect 5 0 1 0;
+#X connect 6 0 0 0;
+#X connect 7 0 0 0;

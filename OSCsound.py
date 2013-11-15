@@ -50,11 +50,19 @@ def handle_score(path, tags, args, source):
 
 def handle_cc(path, tags, args, source):
     global csound
+    print path
     if(len(args) != 2):
         print "Error: CC must have two args: channelName floatValue"
         return
-    #print "TESTING: %s %s"%(args[0], args[1])
+    print "TESTING: %s %s"%(args[0], args[1])
     csound.SetChannel(args[0], args[1])
+
+def default_callback(path, tags, args, source):
+    global csound
+    if path.startswith("/cc/"):
+        csound.SetChannel(path[4:], args[0])
+    else:
+        print "ignoring message :", path, tags, args
 
 def quit_callback(path, tags, args, source):
     global run
@@ -79,6 +87,7 @@ def server_start(port=7110):
     server.addMsgHandler("/sco", handle_score)
     server.addMsgHandler("/cc", handle_cc)
     server.addMsgHandler("/quit", quit_callback)
+    server.addMsgHandler("default", default_callback)
 
 def server_stop():
     global server 
