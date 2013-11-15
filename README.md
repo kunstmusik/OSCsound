@@ -7,9 +7,10 @@ takes in the following messages:
 
 * /sco - 1 argument: score:string
 * /cc - 2 arguments: channelName:string, value:float
+* /cc/someChannelName - 1 argument: value: float
 * /quit - 0 arguments
 
-Score text sent to /sco will be read in by Csound using the InputMessage method on CsoundPerformanceThread. Values sent to /cc will call SetChannel on the Csound object with the given channelName and float value.  The /quit message will shutdown the server and Csound and exit the program.
+Score text sent to /sco will be read in by Csound using the InputMessage method on CsoundPerformanceThread. Values sent to /cc will call SetChannel on the Csound object with the given channelName and float value.  An alternative handler is also available that will read a "/cc/someChannelName" address and single float argument for setting channels.  The /quit message will shutdown the server and Csound and exit the program.
 
 The workflow for using this script is:
 
